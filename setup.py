@@ -39,5 +39,3 @@ setuptools.setup(
         "discord.py >= 1.3.3",
 
     ],
-
-)
