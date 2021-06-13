@@ -10,9 +10,9 @@ setuptools.setup(
 
     version="0.0.1",
 
-    author="1ntegrale9",
+    author="tuna21345",
 
-    author_email="1ntegrale9uation@gmail.com",
+    author_email="ryo816816816@gmail.com",
 
     description="discord sgc pack",
 
@@ -20,7 +20,7 @@ setuptools.setup(
 
     long_description_content_type="text/markdown",
 
-    url="https://github.com/DiscordBotPortalJP/dispander",
+    url="https://github.com/tuna2134/async-sgc",
 
     packages=setuptools.find_packages(),
 
