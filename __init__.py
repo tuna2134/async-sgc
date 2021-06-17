@@ -1,30 +1,26 @@
 import asyncio
-import discord
-from discord.ext import commands
+import json
 
-async def send(message):
-	rjson = {
-           "userId": message.author.id,
-           "userName": message.author.name,
-           "userDiscriminator": message.author.discriminator,
-           "userAvatar": message.author.avatar,
-           "isBot": message.author.bot,
-           "guildId": message.guild.id,
-           "guildName": message.guild.name,
-           "guildIcon": message.guild.icon,
-           "channelId": message.channel.id,
-           "channelName": message.channel.name,
-           "messageId": message.id,
-           "content": message.content
-     }
-     if message.attachments:
-       url = message.attachments[0].url
-       rjson["attachmentsUrl"] = [url]
-     return json.dumps(rjson)) 
-     
-async def read(cnt):
-	res=json.loads(cnt)
-	c="None"
-	if res["attachmentsUrl"]:
-		c=res["attachmentsUrl"]
-	return user_id=res["userId"],user_name=res["userName"],user_tag=res["userDiscriminator"],user_avatar=res["userAvatar"],isbot=res["isBot"],guild_id=res["guildId"],guild_name=res["guildName"],guild_icon=res["guildIcon"],channel_id=res["channelId"],channel_name=res["channelName"],message_id=res["messageId"],message_content=res["content"], attachments_url=c
+class Read:
+  def __init__(self,message):
+    self.message=message
+  
+  async def send(self):
+	  rjson = {
+	    "userId": self.message.author.id,
+      "userName": self.message.author.name,
+      "userDiscriminator": self.message.author.discriminator,
+      "userAvatar": self.message.author.avatar,
+      "isBot": self.message.author.bot,
+      "guildId": self.message.guild.id,
+      "guildName": self.message.guild.name,
+      "guildIcon": self.message.guild.icon,
+      "channelId": self.message.channel.id,
+      "channelName": self.message.channel.name,
+      "messageId": self.message.id,
+      "content": self.message.content
+	  }
+	  if self.message.attachments:
+	    url = self.message.attachments[0].url
+	    rjson["attachmentsUrl"] = [url]
+	  return json.dumps(rjson)
